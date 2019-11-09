@@ -1,1 +1,22 @@
 <h1>Hello world</h1>
+<script>
+  if (typeof localStorage !== 'undefined') {
+      try {
+          localStorage.setItem('feature_test', 'yes');
+          if (localStorage.getItem('feature_test') === 'yes') {
+              localStorage.removeItem('feature_test');
+              // localStorage is enabled
+              document.write("localstorage enabled");
+          } else {
+              // localStorage is disabled
+              document.write("localstorage diabled 1");
+          }
+      } catch(e) {
+          // localStorage is disabled
+          document.write("localstorage disabled 2");
+      }
+  } else {
+      // localStorage is not available
+      document.write("localstorage not available");
+  }
+</script>
