@@ -1,13 +1,16 @@
 class User {
     constructor() {
-        this.KEY = "FRECH19_41";
+        this.KEY = "FRECH19";
         this.User = {};
         this.loadUser();
     }
 
 
     getValue(Key) {
-        return this.User[this.User.CurrentUserID][Key];
+      if(! this.User) return;
+      if(! this.User.CurrentUserID) return;
+      if!( this.User[this.User.CurrentUserID]) return;
+      return this.User[this.User.CurrentUserID][Key];
     }
 
     setValue(Key, Value) {
