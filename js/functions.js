@@ -115,7 +115,7 @@ class User {
         var Hash = Para.get("h");
         var ThisHash = md5(UserID + UserName + DisplayName + ":2019");
         console.log("Hash", Hash, ThisHash);
-        //if(ThisHash !== Hash) return false;
+        if(ThisHash !== Hash) return false;
 
         this.User.CurrentUserID = UserID;
         this.User[UserID] = this.User[UserID] || {};
