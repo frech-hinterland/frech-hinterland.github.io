@@ -28,5 +28,6 @@ var IMG = [
 'Tori1.png',
 'Wiwi1.png',
 'Juli1.png',
-'AngelB1.png'
+'AngelB1.png',
+'Iaky1.png'
 ];
