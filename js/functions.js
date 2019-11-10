@@ -134,7 +134,7 @@ class User {
             ga('send', 'event', "fav", this.ID, Favs[k], 1);
         }
         $.each(this.User, function (key, value) {
-            ga('send', 'event', "user", key, Favs[k], 1);
+          if(key != "CurrentUserID")  ga('send', 'event', "user", this.ID, key, 1);
         });
         Favs = [null, null, null, null, null];
         this.setValue('Favs', Favs);
