@@ -32,7 +32,7 @@ class User {
         localStorage.setItem(this.KEY, JSON.stringify(this.User));
     }
 
-        loadImages() {
+    loadImages() {
         var HTML = "";
         IMG.forEach(function (item) {
             HTML += "<div class='col-4'><img src='/img/" + item + "' data-img='" + item + "' class='img-fluid m-3' onClick='fave(this)'></div>";
@@ -95,8 +95,10 @@ class User {
 
     insideSession() {
         var Now = +new Date;
-        var Delta = Now - this.getValue('lastSaved');
-        console.log("insideSession", Now, Delta, this.ID);
+        var LastSaved = this.getValue('lastSaved');
+        if(! LastSaved) LastSaved =0;
+        var Delta = Now -LastSaved;
+        console.log("insideSession", Now, LastSaved,Delta, this.ID);
         if (!this.ID) return false;
         return true;
     }
