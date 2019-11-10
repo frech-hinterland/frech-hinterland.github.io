@@ -9,7 +9,7 @@ class User {
     getValue(Key) {
       if(! this.User) return;
       if(! this.User.CurrentUserID) return;
-      if!( this.User[this.User.CurrentUserID]) return;
+      if(! this.User[this.User.CurrentUserID]) return;
       return this.User[this.User.CurrentUserID][Key];
     }
 
