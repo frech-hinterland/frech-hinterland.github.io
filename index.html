@@ -6,10 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-36148913-3', 'auto');
         ga('send', 'pageview');
@@ -22,11 +29,15 @@
 <body>
 <section class="jumbotron text-center">
     <div class="container">
-        <h1 class="jumbotron-heading">Frech Calendar 2019 <small id="username"></small></h1>
+        <h1 class="jumbotron-heading">Frech Calendar 2019
+            <small id="username"></small>
+        </h1>
         <p class="lead text-muted" id="toptext">
-            1) Click an image on the right side to fav it.<br>
-            2) Click on the left to remove it from your favs.<br>
-            3) At the end submit it with the blue button.
+        <div class="row">
+            <div class="col-4">1) Click an image on the right side to fav it.</div>
+            <div class="col-4">2) Click on the left to remove it from your favs.</div>
+            <div class="col-4">3) At the end submit it with the blue button.</div>
+        </div>
         </p>
     </div>
     <div class="row" id="imgarea">
@@ -38,8 +49,8 @@
             <img class="img-fluid m-3" id="fav3" onClick="deFav(3)">
             <img class="img-fluid m-3" id="fav4" onClick="deFav(4)">
             <button id="btnsubmit" class="btn-primary btn-lg btn-block m-3" onClick="submitVote()">Vote</button>
-            <p class="text-danger m-3" id="btnwarning"></p>
-            <p class="text-success m-3" id="btnsuccess"></p>
+            <p class="text-danger m-3" id="textdanger"></p>
+            <p class="text-success m-3" id="textsuccess"></p>
         </div>
         <div class="col-10">
             <h3>All pics</h3>

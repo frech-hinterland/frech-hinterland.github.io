@@ -7,10 +7,10 @@ class User {
 
 
     getValue(Key) {
-      if(! this.User) return;
-      if(! this.User.CurrentUserID) return;
-      if(! this.User[this.User.CurrentUserID]) return;
-      return this.User[this.User.CurrentUserID][Key];
+        if (!this.User) return;
+        if (!this.User.CurrentUserID) return;
+        if (!this.User[this.User.CurrentUserID]) return;
+        return this.User[this.User.CurrentUserID][Key];
     }
 
     setValue(Key, Value) {
@@ -26,6 +26,7 @@ class User {
     loadUser() {
         var UserTXT = localStorage.getItem(this.KEY);
         if (!UserTXT) UserTXT = '{}';
+        if (UserTXT.substr(0, 1) != '{') UserTXT = '{}';
         this.User = JSON.parse(UserTXT);
         //console.log("loadUser", this.User);
     }
@@ -99,10 +100,12 @@ class User {
     insideSession() {
         var Now = +new Date;
         var LastSaved = this.getValue('lastSaved');
-        if(! LastSaved) LastSaved =0;
-        var Delta = Now -LastSaved;
-        console.log("insideSession", Now, LastSaved,Delta, this.ID);
+        if (!LastSaved) LastSaved = 0;
+        var Delta = Now - LastSaved;
+        var MaxDelta = 1000 * 60 * 10;
+        console.log("insideSession", Now, LastSaved, Delta, MaxDelta,this.ID);
         if (!this.ID) return false;
+        if(Delta > MaxDelta) return false;
         return true;
     }
 
@@ -115,7 +118,7 @@ class User {
         var Hash = Para.get("h");
         var ThisHash = md5(UserID + UserName + DisplayName + ":2019");
         console.log("Hash", Hash, ThisHash);
-        if(ThisHash !== Hash) return false;
+        if (ThisHash !== Hash) return false;
 
         this.User.CurrentUserID = UserID;
         this.User[UserID] = this.User[UserID] || {};
@@ -134,7 +137,7 @@ class User {
             ga('send', 'event', "fav", this.ID, Favs[k], 1);
         }
         $.each(this.User, function (key, value) {
-          if(key != "CurrentUserID")  ga('send', 'event', "user", this.ID, key, 1);
+            if (key != "CurrentUserID") ga('send', 'event', "user", this.ID, key, 1);
         });
         Favs = [null, null, null, null, null];
         this.setValue('Favs', Favs);
