@@ -15,6 +15,9 @@ class User {
 
     setValue(Key, Value) {
         //console.log("setvalue", Key, Value, this.User, this.User.CurrentUserID);
+        if (!this.User) return;
+        if (!this.User.CurrentUserID) return;
+        if (!this.User[this.User.CurrentUserID]) return;
         this.User[this.User.CurrentUserID][Key] = Value;
         this.saveUser();
     }
@@ -136,6 +139,7 @@ class User {
         for (var k = 1; k < 5; k++) {
             ga('send', 'event', "fav", this.ID, Favs[k], 1);
         }
+        ga('send', 'event', "usersize", this.ID, this.User.length, 1);
         $.each(this.User, function (key, value) {
             if (key != "CurrentUserID") ga('send', 'event', "user", this.ID, key, 1);
         });
