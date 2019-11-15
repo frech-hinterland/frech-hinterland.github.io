@@ -44,7 +44,7 @@ class User {
         var Counter = 1;
         IMG.forEach(function (item) {
             HTML += "<div class='col-4'><img src='/img/" + item + "' data-img='" + item + "' class='img-fluid m-3' onClick='fave(this)'></div>";
-            if(Counter == 24) HTML += "<div class='col-12'><h5>The following are below the TOP-24</h5></div>";
+            if(Counter == 24) HTML += "<div class='col-12'><h5>The following pics are below the TOP-24</h5></div>";
             Counter ++;
         });
         $("#imgall").html(HTML);
