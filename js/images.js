@@ -1,5 +1,6 @@
 var IMG = [
 'Ikuko1.png',
+'Blaze1.png',
 'Cora1.png',
 'Aida1.png',
 'Silvy1.png',
@@ -18,8 +19,8 @@ var IMG = [
 'Tabea1.png',
 'Mellia1.png',
 'Stacey1.png',
-'Juli1.png',
 'AngelB1.png',
+'Juli1.png',
 'Simone1.png',
 'Malone1.png',
 'Jeanye1.png',
